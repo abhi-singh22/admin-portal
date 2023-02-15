@@ -22,26 +22,29 @@ function Home() {
     const [isFormValid, setIsFormValid] = useState(true);
     const [isInsuranceValid, setIsInsuranceValid] = useState();
 
-    // const client = axios.create({
-    //     baseURL: "https://eligibilitycheck.onrender.com" 
-    //   });
-
     const handleSubmit = async (event) => {
-    //     event.preventDefault();
-    //     const response = await client
-    //      .post('valid-insurance', formValues)
-        // alert(response);
-        setIsInsuranceValid(true)
+        event.preventDefault();
+        const options = {
+            method: 'POST',
+            url: 'https://eligibilitycheck.onrender.com/valid-insurance',
+            data: formValues
+          };
+          axios
+            .request(options)
+            .then(function (response) {
+                setIsInsuranceValid(response.data.message)
+            })
+            .catch(function (error) {
+              new Error(error)
+            });
         setTimeout(()=>{setIsInsuranceValid()}, 6000)
     }
-// console.log("isInsuranceValid",isInsuranceValid);
 
     function handleUserInput(e) {
         const name = e.target.name;
         const value = e.target.value;
         setFormValues({ ...formValues, [name]: value.trim() });
     }
-    // console.log("formValues: ", formValues);
 
     function validateInsurance() {
 
@@ -115,10 +118,10 @@ function Home() {
                         </span>
                     </div >
                     <div className="message-box">
-                    {isInsuranceValid && <div className="valid-insurance-message message-box">
+                    {(isInsuranceValid == 'valid') && <div className="valid-insurance-message message-box">
                             <span>'Valid Insurance' <br/> Patient Health Insurance Validated </span>
                     </div>}
-                    {(isInsuranceValid==false) && <div className="invalid-insurance-message message-box">
+                    {(isInsuranceValid == 'invalid') && <div className="invalid-insurance-message message-box">
                             <span>'Invalid Insurance' <br/> Please check details entered & Submit again </span>
                     </div>}
                     </div>
