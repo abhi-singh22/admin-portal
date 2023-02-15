@@ -1,6 +1,6 @@
 import './Home.css';
 import Select from './Select';
-import React, { useState, setState } from 'react';
+import React, { useState } from 'react';
 import axios from "axios";
 
 function Home() {
@@ -22,36 +22,36 @@ function Home() {
     const [isFormValid, setIsFormValid] = useState(true);
     const [isInsuranceValid, setIsInsuranceValid] = useState();
 
-    const client = axios.create({
-        baseURL: "https://eligibilitycheck.onrender.com" 
-      });
+    // const client = axios.create({
+    //     baseURL: "https://eligibilitycheck.onrender.com" 
+    //   });
 
     const handleSubmit = async (event) => {
-        event.preventDefault();
-        const response = await client
-         .post('valid-insurance', formValues)
-        alert(response);
+    //     event.preventDefault();
+    //     const response = await client
+    //      .post('valid-insurance', formValues)
+        // alert(response);
         setIsInsuranceValid(true)
         setTimeout(()=>{setIsInsuranceValid()}, 6000)
     }
-console.log("isInsuranceValid",isInsuranceValid);
+// console.log("isInsuranceValid",isInsuranceValid);
 
     function handleUserInput(e) {
         const name = e.target.name;
         const value = e.target.value;
         setFormValues({ ...formValues, [name]: value.trim() });
     }
-    console.log("formValues: ", formValues);
+    // console.log("formValues: ", formValues);
 
     function validateInsurance() {
 
     }
 
-    const genderOptions = [{ label: 'Select', value: '' }, { label: 'Male', value: 'male' }, { label: 'Female', value: 'female' }]
-    const raceOptions = [{ label: 'Select', value: '' }, { label: 'race1', value: 'race1' }, { label: 'race2', value: 'race2' }];
-    const ethenticityOptions = [{ label: 'Select', value: '' }, { label: 'ethenticity1', value: 'ethenticity1' }, { label: 'ethenticity2', value: 'ethenticity2' }];
-    const carrierNameOptions = [{ label: 'Select', value: '' }, { label: 'carrierName1', value: 'carrierName1' }, { label: 'carrierName2', value: 'carrierName2' }];
-    const relationshipOptions = [{ label: 'Select', value: '' }, { label: 'Single', value: 'single' }, { label: 'Married', value: 'Married' }];
+    const genderOptions = [{ label: 'Select', value: '' }, { label: 'Male', value: 'male' }, { label: 'Female', value: 'female' },{ label: 'Other', value: 'other' }]
+    const raceOptions = [{ label: 'Select', value: '' }, { label: 'American Indian or Alaskan Native', value: 'americanIndian' }, { label: 'Asian', value: 'asian' }, { label: 'Black or African American', value: 'black' }, { label: 'White', value: 'white' }, { label: 'Decline to Answer', value: 'decline' }];
+    const ethenticityOptions = [{ label: 'Select', value: '' }, { label: 'Hispanic or Latin', value: 'hispanic' }, { label: 'Non-Hispanic or Latin', value: 'nonHispanic' }, { label: 'Decline to Answer', value: 'decline' }];
+    const carrierNameOptions = [{ label: 'Select', value: '' }, { label: 'Aetna', value: 'aetna' }, { label: 'BCBS', value: 'bcbs' }, { label: 'Kaiser', value: 'kaiser' }, { label: 'Optum', value: 'optum' }];
+    const relationshipOptions = [{ label: 'Select', value: '' }, { label: 'Self', value: 'self' }, { label: 'Spouse', value: 'spouse' },{ label: 'Parent', value: 'parent' },{ label: 'Child', value: 'child' }, { label: 'Other', value: 'other' }];
 
     return (
         <div className="border-box">
