@@ -126,7 +126,7 @@ function Home() {
                     </div>}
                     </div>
                     <div>
-                        <button type="submit" disabled={!isFormValid}>Validate Insurance</button>
+                        <button type="submit" disabled={!isFormValid} className="validate-buttom"><b>Validate Insurance</b></button>
                     </div>
                 </div>
             </form>

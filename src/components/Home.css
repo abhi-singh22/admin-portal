@@ -71,3 +71,11 @@ button{
     background-color: red;
     color: white;
 }
+
+.validate-buttom{
+    color: white;
+    background-color: #1e80e3;
+    width: 16vw;
+    height: 2vw;
+    border-radius: 5px;
+}
