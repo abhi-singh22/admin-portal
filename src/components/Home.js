@@ -53,7 +53,6 @@ function Home() {
         const name = e.target.name;
         const value = e.target.value.trim();
         setErrorMessege({ ...errorMessege, [name]: !value.length })
-        return
     }
 
     return (

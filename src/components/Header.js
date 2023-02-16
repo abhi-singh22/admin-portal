@@ -4,7 +4,7 @@ function Header() {
   return (
     <header style={{marginBottom: '20px'}}>
         <div className="header">
-            <span></span>
+            <span ><img src={"../images/Walgreens-logo.png"} alt="My Image"/></span>
             <span style={{fontSize: 'xx-large',
     color: '#1f85ec'}}>Admin Portal</span>
             <span style={{marginTop:"8px"}}>Welcome User</span>
