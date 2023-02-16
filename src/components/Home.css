@@ -56,7 +56,7 @@ button{
 }
 
 .message-box{
-    height: 100px;
+    height: 80px;
     margin-bottom: 10px;
     margin-left: 55px;
     margin-right: 55px;
@@ -74,8 +74,33 @@ button{
 
 .validate-buttom{
     color: white;
-    background-color: #1e80e3;
+    background-color:  rgb(31, 133, 236);;
     width: 16vw;
     height: 2vw;
     border-radius: 5px;
 }
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+    
+}
+
+.tab-container {
+    display: flex;
+    /* justify-content: space-between; */
+    position: relative;
+    color:#1e80e3;
+  }
+  a{
+      color:#1e80e3;
+  }
+  .tab-container::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    /* background-color: #ccc; */
+  }
