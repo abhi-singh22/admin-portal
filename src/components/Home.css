@@ -106,3 +106,13 @@ button{
     height: 2px;
     /* background-color: #ccc; */
   }
+
+  img{
+    width: 117px;
+    margin-left: 21px;
+  }
+
+  .error-messege{
+    margin: 20px;
+    display: inline-block;
+  }

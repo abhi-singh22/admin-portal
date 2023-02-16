@@ -15,7 +15,7 @@ function Home() {
     };
 
     const [formValues, setFormValues] = useState({});
-    const [isFormValid, setIsFormValid] = useState(true);
+    const [isFormValid, setIsFormValid] = useState(false);
     const [isInsuranceValid, setIsInsuranceValid] = useState();
     const [errorMessege, setErrorMessege] = useState(initialErrorMessege);
 
@@ -25,6 +25,7 @@ function Home() {
     const carrierNameOptions = [{ label: 'Select', value: '' }, { label: 'Aetna', value: 'aetna' }, { label: 'BCBS', value: 'bcbs' }, { label: 'Kaiser', value: 'kaiser' }, { label: 'Optum', value: 'optum' }];
     const relationshipOptions = [{ label: 'Select', value: '' }, { label: 'Self', value: 'self' }, { label: 'Spouse', value: 'spouse' }, { label: 'Parent', value: 'parent' }, { label: 'Child', value: 'child' }, { label: 'Other', value: 'other' }];
     const mandatoryFields = ["firstName", "lastName", "gender", "dob", "race", "carrierName", "memberId"]
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         const options = {
@@ -40,7 +41,7 @@ function Home() {
             .catch(function (error) {
                 new Error(error)
             });
-        setTimeout(() => { setIsInsuranceValid() }, 6000)
+        setTimeout(() => { setIsInsuranceValid() }, 10000)
     }
 
     function handleUserInput(e) {
@@ -53,8 +54,8 @@ function Home() {
         const name = e.target.name;
         const value = e.target.value.trim();
         setErrorMessege({ ...errorMessege, [name]: !value.length })
+        setIsFormValid(mandatoryFields.every(element => (formValues[element] !== undefined && formValues[element] !== '')));
     }
-
     return (
         <div className="border-box">
             <form onSubmit={handleSubmit}>
@@ -75,19 +76,19 @@ function Home() {
                     <div className="fieldsRows">
                         <span>
                             <label htmlFor="gender">Gender<span className="req">*</span></label>
-                            <Select options={genderOptions} handleInput={handleUserInput} name="gender" id="gender" showErrorMessege={showErrorMessege}/>
+                            <Select options={genderOptions} handleInput={handleUserInput} name="gender" id="gender" showErrorMessege={showErrorMessege} />
                             {(errorMessege.gender) && <span className="req">Gender is Required</span>}
                         </span>
                         <span>
                             <label htmlFor="dob">DOB<span className="req">*</span></label>
-                            <input id="dob" type="date" name="dob" placeholder="MM/DD/YYYY" onChange={(event) => handleUserInput(event)} onBlur={(event) => showErrorMessege(event)}></input>
+                            <input id="dob" type="date" name="dob" onChange={(event) => handleUserInput(event)} onBlur={(event) => showErrorMessege(event)}></input>
                             {(errorMessege.dob) && <span className="req">DOB is Required</span>}
                         </span>
                     </div>
                     <div className="fieldsRows">
                         <span>
                             <label htmlFor="race">Race<span className="req">*</span></label>
-                            <Select options={raceOptions} handleInput={handleUserInput} name="race" id="race" showErrorMessege={showErrorMessege}/>
+                            <Select options={raceOptions} handleInput={handleUserInput} name="race" id="race" showErrorMessege={showErrorMessege} />
                             {(errorMessege.race) && <span className="req">Race is Required</span>}
                         </span>
                         <span>
@@ -101,7 +102,7 @@ function Home() {
                     <div className="carrierClass">
                         <span>
                             <label htmlFor="carrierName">Carrier Name<span className="req">*</span></label>
-                            <Select options={carrierNameOptions} handleInput={handleUserInput} name="carrierName" id="carrierName" showErrorMessege={showErrorMessege}/>
+                            <Select options={carrierNameOptions} handleInput={handleUserInput} name="carrierName" id="carrierName" showErrorMessege={showErrorMessege} />
                             {(errorMessege.carrierName) && <span className="req">Carrier Name is Required</span>}
                         </span>
                     </div>
@@ -124,10 +125,10 @@ function Home() {
                     </div >
                     <div className="message-box">
                         {(isInsuranceValid == 'valid') && <div className="valid-insurance-message message-box">
-                            <span>'Valid Insurance' <br /> Patient Health Insurance Validated </span>
+                            <span className="error-messege">'Valid Insurance' <br /> Patient Health Insurance Validated </span>
                         </div>}
                         {(isInsuranceValid == 'invalid') && <div className="invalid-insurance-message message-box">
-                            <span>'Invalid Insurance' <br /> Please check details entered & Submit again </span>
+                            <span className="error-messege">'Invalid Insurance' <br /> Please check details entered & Submit again </span>
                         </div>}
                     </div>
                     <div>
