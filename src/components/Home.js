@@ -64,12 +64,12 @@ function Home() {
                     <div className="fieldsRows">
                         <span>
                             <label htmlFor="firstName">First Name<span className="req">*</span></label>
-                            <input id="name" type="text" name="firstName" placeholder="First Name" onChange={(event) => handleUserInput(event)} onBlur={(event) => showErrorMessege(event)}></input>
+                            <input id="name" type="text" name="firstName" placeholder="First Name" maxlength="100" onChange={(event) => handleUserInput(event)} onBlur={(event) => showErrorMessege(event)}></input>
                             {(errorMessege.firstName) && <span className="req">First Name is Required</span>}
                         </span>
                         <span>
                             <label htmlFor="lastName">Last Name<span className="req">*</span></label>
-                            <input id="name" type="text" name="lastName" placeholder="Last Name" onChange={(event) => handleUserInput(event)} onBlur={(event) => showErrorMessege(event)}></input>
+                            <input id="name" type="text" name="lastName" placeholder="Last Name" maxlength="100" onChange={(event) => handleUserInput(event)} onBlur={(event) => showErrorMessege(event)}></input>
                             {(errorMessege.lastName) && <span className="req">Last Name is Required</span>}
                         </span>
                     </div>
@@ -109,12 +109,12 @@ function Home() {
                     <div className="fieldsRows">
                         <span>
                             <label htmlFor="memberId">Member ID<span className="req">*</span></label>
-                            <input id="memberId" type="text" name="memberId" placeholder="Member ID" onChange={(event) => handleUserInput(event)} onBlur={(event) => showErrorMessege(event)}></input>
+                            <input id="memberId" type="text" name="memberId" placeholder="Member ID" maxlength="100" onChange={(event) => handleUserInput(event)} onBlur={(event) => showErrorMessege(event)}></input>
                             {(errorMessege.memberId) && <span className="req">Member ID is Required</span>}
                         </span>
                         <span>
                             <label htmlFor="groupNumber">Group Number</label>
-                            <input id="groupNumber" type="text" name="groupNumber" placeholder="Group Number" onChange={(event) => handleUserInput(event)}></input>
+                            <input id="groupNumber" type="text" name="groupNumber" placeholder="Group Number" maxlength="100" onChange={(event) => handleUserInput(event)}></input>
                         </span>
                     </div>
                     <div className="carrierClass">
