@@ -7,8 +7,8 @@ function Header() {
         <div className="header">
             <span ><img src={logo} alt="logo"/></span>
             <span style={{fontSize: 'xx-large',
-    color: '#1f85ec', padding: '9px'}}>Admin Portal</span>
-            <span style={{marginTop:"8px", padding: '9px'}}>Welcome User</span>
+    color: '#1f85ec', padding: '16px'}}>Admin Portal</span>
+            <span style={{marginTop:"19px", padding: '9px'}}>Welcome User</span>
         </div>
       <nav>
         <div className="tab-container">
