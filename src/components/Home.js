@@ -18,6 +18,7 @@ function Home() {
     const [isFormValid, setIsFormValid] = useState(false);
     const [isInsuranceValid, setIsInsuranceValid] = useState();
     const [errorMessege, setErrorMessege] = useState(initialErrorMessege);
+    const [maxDate, setMaxDate] = useState(new Date().toISOString().split('T')[0]);
 
     const genderOptions = [{ label: 'Select', value: '' }, { label: 'Male', value: 'male' }, { label: 'Female', value: 'female' }, { label: 'Other', value: 'other' }]
     const raceOptions = [{ label: 'Select', value: '' }, { label: 'American Indian or Alaskan Native', value: 'americanIndian' }, { label: 'Asian', value: 'asian' }, { label: 'Black or African American', value: 'black' }, { label: 'White', value: 'white' }, { label: 'Decline to Answer', value: 'decline' }];
@@ -81,7 +82,7 @@ function Home() {
                         </span>
                         <span>
                             <label htmlFor="dob">DOB<span className="req">*</span></label>
-                            <input id="dob" type="date" name="dob" onChange={(event) => handleUserInput(event)} onBlur={(event) => showErrorMessege(event)}></input>
+                            <input id="dob" type="date" name="dob" max={maxDate} onChange={(event) => handleUserInput(event)} onBlur={(event) => showErrorMessege(event)}></input>
                             {(errorMessege.dob) && <span className="req">DOB is Required</span>}
                         </span>
                     </div>
