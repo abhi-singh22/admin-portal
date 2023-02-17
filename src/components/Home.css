@@ -6,6 +6,7 @@
     padding: 20px;
     border: 1px solid rgb(0, 0, 0);
     background-color: #eeeeee;
+    font-family: Arial, sans-serif;
   }
 
   .req {
@@ -85,7 +86,7 @@ button{
     display: flex;
     justify-content: space-between;
     height: 70px;
-    
+    font-family: Arial, sans-serif;
 }
 
 .tab-container {
@@ -94,6 +95,7 @@ button{
     position: relative;
     color:#1e80e3;
     margin-left: 128px;
+    font-family: Arial, sans-serif;
   }
   a{
       color:#1e80e3;
