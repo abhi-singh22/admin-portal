@@ -116,3 +116,7 @@ button{
     margin: 20px;
     display: inline-block;
   }
+
+  button:disabled {
+    background-color: gray;
+  }
